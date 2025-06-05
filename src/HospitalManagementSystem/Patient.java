@@ -20,12 +20,13 @@ public class Patient {
         String name = scanner.nextLine();
         System.out.println("Enter Patient age: ");
         int age = scanner.nextInt();
+        scanner.nextLine();
         System.out.println("Enter Patient gender: ");
         String gender = scanner.nextLine();
 
         // try-catch-block to catch data entry
         try {
-            String query = "INSERT INTO patients(name, age, gender) VALUES(?, ?, ?)";
+            String query = "INSERT INTO patients(patient_name, patient_age, patient_gender) VALUES(?, ?, ?)";
 
             // parse in the query into the connected database
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -66,9 +67,9 @@ public class Patient {
                 int age = resultSet.getInt("patient_age");
                 String gender = resultSet.getString("patient_gender");
 
-                System.out.printf("| %-12s | %-28s | %-6s | %-8s |");
-                System.out.println("+------------+----------------------------+------+--------+");
+                System.out.printf("| %-12s | %-28s | %-6s | %-8s |\n", id, name, age, gender);
             }
+            System.out.println("+------------+----------------------------+------+--------+");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -76,7 +77,7 @@ public class Patient {
     }
 
     // get patient by id method
-    public boolean getPatientId(int id) {
+    public boolean patientExists(int id) {
         String query = "SELECT * FROM patients WHERE id = ?";
 
         try {
