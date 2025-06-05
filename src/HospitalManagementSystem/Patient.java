@@ -1,10 +1,7 @@
 package HospitalManagementSystem;
 
 import java.net.InetAddress;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLDataException;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Scanner;
 
 public class Patient {
@@ -50,6 +47,33 @@ public class Patient {
             e.printStackTrace();
         }
 
+    }
+
+    // view patients method
+    public void viewPatients() {
+        String query = "SELECT * FROM patients";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            System.out.println("Patients");
+            System.out.println("+------------+----------------------------+------+--------+");
+            System.out.println("| Patient Id | Name                       | Age  | Gender |");
+            System.out.println("+------------+----------------------------+------+--------+");
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("patient_name");
+                int age = resultSet.getInt("patient_age");
+                String gender = resultSet.getString("patient_gender");
+
+                System.out.printf("| %-12s | %-28s | %-6s | %-8s |");
+                System.out.println("+------------+----------------------------+------+--------+");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }
