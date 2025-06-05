@@ -9,7 +9,7 @@ public class HospitalManagementDriver {
     // class fields
     private static final String url = "jdbc:mysql://localhost:3306/hospital_manager";
     private static final String username = "root";
-    private static final String password = "Admin123";
+    private static final String password = "Maritimo.88";
 
     public static void main(String[] args) {
         try {
@@ -30,26 +30,30 @@ public class HospitalManagementDriver {
                 System.out.println("2. View Patients");
                 System.out.println("3. View Doctors");
                 System.out.println("4. Book Appointment");
-                System.out.println("5. Exit");
+                System.out.println("0. Exit");
                 System.out.println("Enter your choice> ");
                 int choice = scanner.nextInt();
+                scanner.nextLine();
 
                 switch (choice) {
                     case 1:
                         patient.addPatient(); // Add Patient
+                        System.out.println();
                         break;
                     case 2:
                         patient.viewPatients(); // View Patients
+                        System.out.println();
                         break;
                     case 3:
                         doctor.viewDoctors(); // View Doctors
+                        System.out.println();
                         break;
                     case 4:
-                        // Book Appointment
+                        bookAppointment(patient, doctor, connection, scanner); // Book Appointment
+                        System.out.println();
                         break;
-                    case 5:
-                        // Exit
-                        return;
+                    case 0:
+                        return; // Exit
                     default:
                         System.out.println("Enter a valid choice.");
                 }

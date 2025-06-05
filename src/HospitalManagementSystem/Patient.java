@@ -17,12 +17,14 @@ public class Patient {
     // add patient method
     public void addPatient() {
         System.out.println("Enter Patient name: ");
-        String name = scanner.nextLine();
+        String name = scanner.nextLine();  // ✅ reads full line like "Katlego Masilo"
+
         System.out.println("Enter Patient age: ");
         int age = scanner.nextInt();
-        scanner.nextLine();
+        scanner.nextLine(); // ✅ clear leftover newline after number input
+
         System.out.println("Enter Patient gender: ");
-        String gender = scanner.nextLine();
+        String gender = scanner.nextLine(); // ✅ full gender input
 
         // try-catch-block to catch data entry
         try {
@@ -67,7 +69,7 @@ public class Patient {
                 int age = resultSet.getInt("patient_age");
                 String gender = resultSet.getString("patient_gender");
 
-                System.out.printf("| %-12s | %-28s | %-6s | %-8s |\n", id, name, age, gender);
+                System.out.printf("| %-10s | %-26s | %-4s | %-6s |\n", id, name, age, gender);
             }
             System.out.println("+------------+----------------------------+------+--------+");
 
