@@ -26,6 +26,7 @@ public class HospitalManagementDriver {
             Doctor doctor = new Doctor(connection);
 
             while(true) {
+                System.out.println("Hospital Management System.");
                 System.out.println("1. Add Patient");
                 System.out.println("2. View Patients");
                 System.out.println("3. View Doctors");
@@ -53,6 +54,7 @@ public class HospitalManagementDriver {
                         System.out.println();
                         break;
                     case 0:
+                        System.out.println("Thank you for checking in with us.");
                         return; // Exit
                     default:
                         System.out.println("Enter a valid choice.");
@@ -68,8 +70,11 @@ public class HospitalManagementDriver {
     public static void bookAppointment(Patient patient, Doctor doctor, Connection connection, Scanner scanner) {
         System.out.println("Enter Patient id: ");
         int patientId = scanner.nextInt();
+
         System.out.println("Enter Doctor id: ");
         int doctorId = scanner.nextInt();
+        scanner.nextLine();
+
         System.out.println("Enter Appointment date (YYYY-MM-DD): ");
         String appointmentDate = scanner.nextLine();
 

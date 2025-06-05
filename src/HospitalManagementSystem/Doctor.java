@@ -29,7 +29,7 @@ public class Doctor {
                 String name = resultSet.getString("doctor_name");
                 String specialization = resultSet.getString("doctor_specialization");
 
-                System.out.printf("| %-11s | %-27s | %-18s |\n", id , name, specialization);
+                System.out.printf("| %-9s | %-25s | %-16s |\n", id , name, specialization);
             }
             System.out.println("+-----------+---------------------------+------------------+");
 
