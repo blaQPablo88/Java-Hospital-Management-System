@@ -6,12 +6,10 @@ import java.util.Scanner;
 public class Doctor {
 
     private Connection connection;
-//    private Scanner scanner;
 
     // doctor constructor
-    public Doctor(Connection connection, Scanner scanner) {
+    public Doctor(Connection connection) {
         this.connection = connection;
-//        this.scanner = scanner;
     }
 
     // view doctors method
