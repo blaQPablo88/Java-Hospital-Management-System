@@ -1,6 +1,5 @@
 package HospitalManagementSystem;
 
-import java.net.InetAddress;
 import java.sql.*;
 import java.util.Scanner;
 
@@ -17,11 +16,11 @@ public class Patient {
 
     // add patient method
     public void addPatient() {
-        System.out.println("Enter patient name: ");
+        System.out.println("Enter Patient name: ");
         String name = scanner.nextLine();
-        System.out.println("Enter patient age: ");
+        System.out.println("Enter Patient age: ");
         int age = scanner.nextInt();
-        System.out.println("Enter patient gender: ");
+        System.out.println("Enter Patient gender: ");
         String gender = scanner.nextLine();
 
         // try-catch-block to catch data entry
