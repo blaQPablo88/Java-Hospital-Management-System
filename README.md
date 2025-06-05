@@ -32,24 +32,24 @@ CREATE DATABASE hospital_manager;
 
 USE hospital_manager;
 
-CREATE TABLE patients (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    patient_name VARCHAR(100),
-    patient_age INT,
-    patient_gender VARCHAR(10)
-);
+CREATE TABLE patients(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> patient_name VARCHAR(255) nOT NULL,
+    -> patient_age INT NOT NULL,
+    -> patient_gender VARCHAR(10) NOT NULL
+    -> );
 
-CREATE TABLE doctors (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    doctor_name VARCHAR(100),
-    doctor_specialization VARCHAR(100)
-);
+CREATE TABLE doctors(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> doctor_name VARCHAR(255) NOT NULL,
+    -> doctor_specialization VARCHAR(255) NOT NULL,
+    -> );
 
-CREATE TABLE appointments (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    patient_id INT,
-    doctor_id INT,
-    appointment_date DATE,
-    FOREIGN KEY (patient_id) REFERENCES patients(id),
-    FOREIGN KEY (doctor_id) REFERENCES doctors(id)
-);
+CREATE TABLE appointments(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> patient_id INT NOT NULL,
+    -> doctor_id INT NOT NULL,
+    -> appointment_date DATE NOT NULL,
+    -> FOREIGN KEY (patient_id) REFERENCES patients(id),
+    -> FOREIGN KEY (doctor_id) REFERENCES doctors(id)
+    -> );
